@@ -2,19 +2,25 @@ package com.example.lab_1
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.lab_1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    lateinit var binding: ActivityMainBinding
+    var it = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.textView.text = "0"
     }
-    var it = 0
+
+
     fun clickButton(view: View) {
         it += 1
-        val myToast = Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT)
-        myToast.show()
+        binding.textView.text = it.toString()
     }
 }
 
