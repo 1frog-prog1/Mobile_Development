@@ -1,5 +1,6 @@
 package com.example.lab_1
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -18,9 +19,15 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun clickButton(view: View) {
+    fun add1(view: View) {
         it += 1
         binding.textView.text = it.toString()
+    }
+
+    fun random(view: View) {
+        val randomIntent = Intent(this, SecondActivity::class.java)
+        randomIntent.putExtra(SecondActivity.TOTAL_COUNT, it)
+        startActivity(randomIntent)
     }
 }
 
